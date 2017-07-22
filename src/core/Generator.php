@@ -10,7 +10,6 @@ class Generator{
 		$this->wordmap = json_decode(__DIR__."/wordmap.json",true );
 	}
 
-
 	public function getNext(){
 		$shouldPrint = true;
 		//TODO: add your code here
