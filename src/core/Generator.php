@@ -33,7 +33,7 @@ class Generator{
 				$this->charPosition =  $this->sp->get("charPosition");
 				$this->weekNumber =  $this->sp->get("weekNumber");
 			}
-		}else if($this->dayOfWeek != 0)
+		}else if($this->dayOfWeek != 0){
 			die("not monday, we'll start on monday");
 		}
 
