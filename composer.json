@@ -6,5 +6,10 @@
             "email": "manindersingh030@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Graph\\": "src/"
+        }
+    },
     "require": {}
 }
