@@ -1,7 +1,7 @@
 <?php
 namespace Graph\core;
 
-public class Generator{
+class Generator{
 	private $sentence;
 	private $wordmap;
 
@@ -14,6 +14,7 @@ public class Generator{
 	public function getNext(){
 		$shouldPrint = false;
 		//TODO: add your code here
+
 		return $shouldPrint;
 	}
 
