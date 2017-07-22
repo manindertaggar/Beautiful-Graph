@@ -2,10 +2,10 @@
 require __DIR__.'/../vendor/autoload.php';
 use Graph\core\Generator;
 
-$word = "Pawan";
+$word = "bawan";
 $generator = new Generator($word);
 
 while(true){
-	echo $generator->getNext()==true?"1":"0";
+	echo $generator->getNext()==true?"true":"false";
 	readline();
 }
