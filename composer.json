@@ -1,0 +1,10 @@
+{
+    "name": "root/beautiful-graph",
+    "authors": [
+        {
+            "name": "Maninder Taggar",
+            "email": "manindersingh030@gmail.com"
+        }
+    ],
+    "require": {}
+}
