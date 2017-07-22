@@ -6,6 +6,6 @@ $word = "Pawan";
 $generator = new Generator($word);
 
 while(true){
-	echo $generator->getNext();
+	echo $generator->getNext()==true?"1":"0";
 	readline();
 }

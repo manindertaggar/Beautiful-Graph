@@ -7,12 +7,12 @@ class Generator{
 
 	public function __construct($sentence){
 		$this->sentence = $sentence;
-		$this->wordmap = json_decode(__DIR__."/wordmap.json");
+		$this->wordmap = json_decode(__DIR__."/wordmap.json",true );
 	}
 
 
 	public function getNext(){
-		$shouldPrint = false;
+		$shouldPrint = true;
 		//TODO: add your code here
 
 		return $shouldPrint;
