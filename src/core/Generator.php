@@ -7,13 +7,13 @@ class Generator{
 	private $sentence;
 	private $wordmap;
 	private $sp;
-	private $location;
-	private $row; 
+	private $pixelPosition;
+	private $charPosition; 
 
-	public function __construct($sentence, $location = 0){
+	public function __construct($sentence, $pixelPosition = 0){
 		$this->sentence=$sentence;
-		$this->row = date("N", time())-1;
-		$this->location = $location;
+		$this->charPosition = date("N", time())-1;
+		$this->pixelPosition = $pixelPosition;
 		$this->sp = new SharedPreferences("Generator");
 		$this->wordmap = json_decode(__DIR__."/wordmap.json", true);
 		$this->recoverIfPossible();
@@ -22,30 +22,29 @@ class Generator{
 	private function recoverIfPossible(){
 
 		if(!$this->sp->isEmpty() && $this->sentence == $this->sp->get("sentence")){
-			$this->location =  $this->sp->get("location");
+			$this->pixelPosition =  $this->sp->get("pixelPosition");
 		}
 
 	}
 
 	public function getNext(){
 		$shouldPrint = true;
-		//TODO: add your code here
-
-		
+		//TODO: add your code here		
 		$this->updateAndSaveState();
 		return $shouldPrint;
 	}
 
 	private function updateAndSaveState(){
-		$this->location++;
-		if($this->location > 5)
-			$this->location = 0;
+		$this->pixelPosition++;
+		if($this->pixelPosition > 5){
+			$this->pixelPosition = 0;
+		}
 		$this->saveState();
 	}
 
 	private function saveState(){
 		$this->sp->put("sentence", $this->sentence);
-		$this->sp->put("location", $this->location);
+		$this->sp->put("pixelPosition", $this->pixelPosition);
 	}
 
 
