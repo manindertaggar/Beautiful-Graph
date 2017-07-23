@@ -19,7 +19,7 @@ class Generator{
 			$this->dayOfWeek=0;
 		$this->sp = new SharedPreferences("Generator");
 
-		if($this->sp->get("dayOfWeek") == $this->dayOfWeek){
+		if($this->sp->get("dayOfWeek") === $this->dayOfWeek){
 			die("already commited today so not doing again\n");
 		}
 
