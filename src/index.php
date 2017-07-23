@@ -12,7 +12,7 @@ if($generator->shouldCommit()==true){
 }
 
 for($commitNumber=0;$commitNumber<$commitsCount;$commitNumber++){
-	$text =  $date."->Working on ( $commitNumber ) ".PHP_EOL;
+	$text =  $date."->Working on ( $commitNumber ) \n".PHP_EOL;
 	echo $text;
 	file_put_contents('readme.md', $text , FILE_APPEND | LOCK_EX);
 	shell_exec("git add --all");
