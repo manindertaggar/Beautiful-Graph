@@ -1,1 +1,1 @@
-{"sentence":"MANINDER","weekNumber":2,"charPosition":4,"dayOfWeek":0}
+[]
