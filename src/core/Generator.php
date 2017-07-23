@@ -16,6 +16,11 @@ class Generator{
 		$this->sentence = strtoupper($sentence);
 		$this->dayOfWeek = date("N", time())-1;
 		$this->sp = new SharedPreferences("Generator");
+
+		if($this->sp->get("dayOfWeek") == $this->dayOfWeek){
+			die("already commited today so not doing again\n");
+		}
+
 		$this->wordmap = json_decode(file_get_contents(__DIR__."/wordmap.json"),true);
 		$this->recoverIfPossible();
 
@@ -30,17 +35,15 @@ class Generator{
 
 	}
 
-	public function getNext(){
-		$shouldPrint = false;
+	public function shouldCommit(){
+		$shouldCommit = false;
 
 		$currentChar = $this->sentence[$this->charPosition];
 		echo "currentChar : $currentChar, weekNumber : $this->weekNumber, dayOfWeek : $this->dayOfWeek\n"; 
-		$shouldPrint = $this->wordmap[$currentChar][$this->weekNumber][$this->dayOfWeek];
-
-		$shouldPrint = $shouldPrint==1;
+		$shouldCommit = $this->wordmap[$currentChar][$this->weekNumber][$this->dayOfWeek];
 
 		$this->updateAndSaveState();
-		return $shouldPrint;
+		return $shouldCommit == 1;
 
 	}
 
@@ -56,6 +59,8 @@ class Generator{
 			$this->weekNumber = 0;
 		}
 
+		$this->sp->put("dayOfWeek", $this->dayOfWeek);
+		
 		$this->saveState();
 	}
 
