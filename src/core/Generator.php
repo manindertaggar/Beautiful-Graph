@@ -14,7 +14,9 @@ class Generator{
 
 	public function __construct($sentence, $dayOfWeek = 0){
 		$this->sentence = strtoupper($sentence);
-		$this->dayOfWeek = date("N", time())-1;
+		$this->dayOfWeek = date("N", time());
+		if($this->dayOfWeek==7)
+			$this->dayOfWeek=0;
 		$this->sp = new SharedPreferences("Generator");
 
 		if($this->sp->get("dayOfWeek") == $this->dayOfWeek){
@@ -33,8 +35,8 @@ class Generator{
 				$this->charPosition =  $this->sp->get("charPosition");
 				$this->weekNumber =  $this->sp->get("weekNumber");
 			}
-		}else if($this->dayOfWeek != 0)
-			die("not monday, we'll start on monday");
+		}else if($this->dayOfWeek != 0){
+			die("not sunday, we'll start on sunday");
 		}
 
 	}
