@@ -28,9 +28,13 @@ class Generator{
 
 	private function recoverIfPossible(){
 
-		if(!$this->sp->isEmpty() && $this->sentence == $this->sp->get("sentence")){
-			$this->charPosition =  $this->sp->get("charPosition");
-			$this->weekNumber =  $this->sp->get("weekNumber");
+		if(!$this->sp->isEmpty()){
+			if($this->sentence == $this->sp->get("sentence")){
+				$this->charPosition =  $this->sp->get("charPosition");
+				$this->weekNumber =  $this->sp->get("weekNumber");
+			}
+		}else if($this->dayOfWeek != 0)
+			die("not monday, we'll start on monday");
 		}
 
 	}
