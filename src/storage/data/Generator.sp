@@ -1,0 +1,1 @@
+{"sentence":"BAWAN","weekNumber":1,"charPosition":0}
