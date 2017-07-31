@@ -1,1 +1,1 @@
-{"dayOfWeek":0,"sentence":"MANINDER","weekNumber":0,"charPosition":0}
+{"dayOfWeek":"1","sentence":"MANINDER","weekNumber":0,"charPosition":0}
